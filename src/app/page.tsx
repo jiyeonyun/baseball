@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // 베이스 정보 (홈 포함)
@@ -25,6 +25,16 @@ export default function Home() {
     const [isRunning, setIsRunning] = useState(false);
     const [currentPos, setCurrentPos] = useState({ x: 0, y: 200 });
     const [path, setPath] = useState<{ x: number; y: number }[]>([]);
+    const [introComplete, setIntroComplete] = useState(false); // 인트로 완료 상태
+
+    // 인트로 텍스트가 사라지고 배경이 나타나는 타이밍을 설정
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIntroComplete(true); // 인트로 완료 시 배경 보이도록
+        }, 3000); // 3초 후 인트로 완료
+
+        return () => clearTimeout(timer); // 타이머 정리
+    }, []);
 
     const handleClick = (index: number) => {
         if (isRunning) return; // 이미 타자가 달리고 있으면 클릭 무효화
@@ -65,6 +75,48 @@ export default function Home() {
 
     return (
         <div className="relative w-full h-screen bg-green-600 flex items-center justify-center overflow-hidden">
+            {/* 인트로 텍스트와 배경 삼각형 */}
+
+            {!introComplete && (
+                <>
+                    {/* 배경 삼각형 애니메이션 */}
+                    <motion.div
+                        className="absolute w-full h-full bg-blue-600"
+                        style={{
+                            clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                            zIndex: 1000,
+                        }}
+                        initial={{ x: 0 }}
+                        animate={{ x: "100%" }}
+                        transition={{ duration: 3, ease: "easeInOut" }} // 배경이 3초 동안 나타나기
+                    />
+                    <motion.div
+                        className="absolute w-full h-full bg-white"
+                        style={{
+                            clipPath: "polygon(0 100%, 100% 100%, 50% 0)",
+                            zIndex: 1000,
+                        }}
+                        initial={{ x: 0 }}
+                        animate={{ x: "-100%" }}
+                        transition={{ duration: 3, ease: "easeInOut" }} // 배경이 3초 동안 나타나기
+                    />
+
+                    {/* 텍스트 */}
+                    <motion.div
+                        className="absolute text-white text-9xl font-bold z-50"
+                        initial={{ opacity: 1, scale: 1 }}
+                        animate={{
+                            opacity: 0,
+                            scale: 1.5,
+                            y: "-100px", // 입체감이 생기도록 텍스트가 이동
+                        }}
+                        transition={{ duration: 3 }} // 3초 동안 텍스트 사라지기
+                    >
+                        Play Ball!
+                    </motion.div>
+                </>
+            )}
+
             {/* 야구장 다이아몬드 */}
             <div className="absolute w-[300px] h-[300px] rotate-45 border-[6px] border-white"></div>
 
