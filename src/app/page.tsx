@@ -1,103 +1,96 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+// 베이스 정보 (홈 포함)
+const bases = [
+    { name: "투수", x: 0, y: 0 }, // 투수 (중앙)
+    { name: "1루", x: 190, y: -10 }, // 1루 (오른쪽 위)
+    { name: "2루", x: 0, y: -200 }, // 2루 (위)
+    { name: "3루", x: -190, y: -10 }, // 3루 (왼쪽 위)
+    { name: "홈", x: 0, y: 200 }, // 홈 (맨 아래)
+];
+
+// 각 베이스 버튼의 위치를 설정 (변경 안함)
+const basePositions = [
+    "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2", // 투수
+    "top-[calc(50%)] left-[calc(50%+200px)] -translate-x-1/2 -translate-y-1/2", // 1루
+    "top-[calc(50%-200px)] left-1/2 -translate-x-1/2 -translate-y-1/2", // 2루
+    "top-[calc(50%)] left-[calc(50%-200px)] -translate-x-1/2 -translate-y-1/2", // 3루
+    "top-[calc(50%+200px)] left-1/2 -translate-x-1/2 -translate-y-1/2", // 홈 (맨 아래)
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    const [isRunning, setIsRunning] = useState(false);
+    const [currentPos, setCurrentPos] = useState({ x: 0, y: 200 });
+    const [path, setPath] = useState<{ x: number; y: number }[]>([]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    const handleClick = (index: number) => {
+        if (isRunning) return; // 이미 타자가 달리고 있으면 클릭 무효화
+        setIsRunning(true);
+
+        // 타자가 지나갈 경로 설정 (현재 클릭한 베이스까지)
+        const targetBase = bases[index];
+        let newPath: { x: number; y: number }[] = [];
+
+        // 홈에서 시작하는 경로
+        if (targetBase.name === "1루") {
+            newPath = [bases[4], bases[1]]; // 홈 -> 1루
+        } else if (targetBase.name === "2루") {
+            newPath = [bases[4], bases[1], bases[2]]; // 홈 -> 1루 -> 2루
+        } else if (targetBase.name === "3루") {
+            newPath = [bases[1], bases[2], bases[3]]; // 1루 -> 2루 -> 3루
+        } else if (targetBase.name === "홈") {
+            newPath = [bases[1], bases[2], bases[3], bases[4]]; // 1루 -> 2루 -> 3루 -> 홈
+        }
+
+        setPath(newPath);
+
+        // 타자 애니메이션을 각 경로대로 차례대로 이동
+        let currentStep = 0;
+        const moveInterval = setInterval(() => {
+            if (currentStep < newPath.length) {
+                const base = newPath[currentStep];
+                // 대각선 이동을 위한 x, y 값을 설정 (단순히 목표 베이스의 x, y로 이동)
+                setCurrentPos({ x: base.x, y: base.y });
+                currentStep++;
+            } else {
+                clearInterval(moveInterval);
+                setCurrentPos({ x: 0, y: 200 }); // 경로가 끝나면 다시 홈으로 이동
+                setIsRunning(false); // 애니메이션 끝난 후 다시 클릭 가능
+            }
+        }, 1000); // 1초마다 이동
+    };
+
+    return (
+        <div className="relative w-full h-screen bg-green-600 flex items-center justify-center overflow-hidden">
+            {/* 야구장 다이아몬드 */}
+            <div className="absolute w-[300px] h-[300px] rotate-45 border-[6px] border-white"></div>
+
+            {/* 각 루의 버튼 */}
+            {bases.map((base, index) => (
+                <button
+                    key={base.name}
+                    className={`absolute ${basePositions[index]} bg-white p-2 rounded-full z-10`}
+                    onClick={() => handleClick(index)}
+                >
+                    {base.name}
+                </button>
+            ))}
+
+            {/* 타자 애니메이션 (대각선 이동) */}
+            {isRunning && (
+                <motion.div
+                    className="absolute w-8 h-8 bg-yellow-300 rounded-full z-20"
+                    initial={{ x: currentPos.x, y: currentPos.y }}
+                    animate={{
+                        x: currentPos.x,
+                        y: currentPos.y,
+                        transition: { duration: 1 },
+                    }} // 1초마다 대각선으로 이동
+                />
+            )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
