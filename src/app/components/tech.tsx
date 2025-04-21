@@ -2,10 +2,10 @@
 import { motion } from "framer-motion";
 
 const techs = [
-    { label: "TypeScript", tooltip: "JavaScript" },
-    { label: "ReactNative", tooltip: "React Native / Expo" },
-    { label: "Next.js", tooltip: "React" },
-    { label: "Tailwind.css", tooltip: "SCSS / Styled Components" },
+    { label: "TypeScript", tooltip: "and.. JavaScript" },
+    { label: "ReactNative", tooltip: "and.. Expo" },
+    { label: "Next.js", tooltip: "and..React" },
+    { label: "Tailwind.css", tooltip: "and ..SCSS / Styled Components" },
 ];
 
 const floatingY = (delay = 0) => ({
@@ -27,7 +27,7 @@ export default function FloatingTechGrid() {
                 {techs.map((tech, index) => (
                     <motion.div
                         key={tech.label}
-                        className="relative group px-6 py-3 text-center  text-xs font-semibold text-black bg-contain bg-center bg-no-repeat hover:transition duration-300 cursor-pointer"
+                        className="relative group px-6 py-3 text-center text-xs font-semibold text-black bg-contain bg-center bg-no-repeat hover:transition duration-300 cursor-pointer"
                         variants={floatingY(index * 0.3)}
                         animate="animate"
                         style={{
