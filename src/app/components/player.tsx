@@ -17,8 +17,7 @@ export default function AudioPlayer() {
     const daysSinceStart = getDaysSince("2022-05-17");
     const togglePlay = () => setIsPlaying((prev) => !prev);
     const containerStyle = {
-        background: "rgba(211, 211, 211, 0.032)",
-
+        background: "rgba(211, 211, 211, 0.146)",
         backdropFilter: "blur(2px)",
         WebkitBackdropFilter: "blur(2px)",
         borderRadius: "10px",
@@ -29,7 +28,7 @@ export default function AudioPlayer() {
             {/* 앨범 이미지 */}
             <motion.img
                 key={isPlaying ? "playing" : "paused"}
-                src="/profile.jpg"
+                src="/baseball.png"
                 alt="album"
                 className="w-24 h-24 object-cover rounded-xl"
                 animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
@@ -40,14 +39,14 @@ export default function AudioPlayer() {
             <div className="flex flex-col justify-between h-full flex-1">
                 {/* 텍스트 */}
                 <div>
-                    <p className="text-sm font-semibold dark:text-white">휴식중</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-tight">프론트엔드 개발자</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-300">유저에게</p>
+                    <p className="text-m font-semibold dark:text-white">🦦🏝️</p>
+                    <p className="text-xs text-gray-600 dark:text-white leading-tight">프론트엔드 개발자</p>
+                    <p className="text-xs text-gray-600 dark:text-white">뭐라고 적지 후하항</p>
                 </div>
 
                 {/* 슬라이더 */}
                 <div className="mt-2 flex items-center gap-2">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">22/05</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">22/05 ~</p>
                     <div className="flex-1 flex items-center">
                         <input
                             type="range"
@@ -78,7 +77,7 @@ export default function AudioPlayer() {
                 {/* 음파 애니메이션 */}
                 {isPlaying && (
                     <div className="flex mt-2 gap-1 h-5 items-end">
-                        {[...Array(5)].map((_, i) => (
+                        {[...Array(30)].map((_, i) => (
                             <motion.div
                                 key={i}
                                 className="w-1 rounded"

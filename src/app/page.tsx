@@ -1,5 +1,7 @@
 import React from "react";
 import AudioPlayer from "./components/player";
+import Github from "./components/github";
+import FloatingTechGrid from "./components/tech";
 
 const page = () => {
     return (
@@ -16,29 +18,16 @@ const page = () => {
                 <div className="flex flex-1">
                     <div className="flex flex-wrap items-center justify-center w-full h-full gap-4 gap-y-4">
                         <div className="flex-col">
-                            <div className="flex-col">
-                                <div className="flex justify-between items-center group w-full ">
-                                    <span className="text-lg font-semibold">본캐</span>
-                                    {/* <img
-                                        src="/lion.png"
-                                        alt="본캐"
-                                        className="h-15 w-20 transition-transform duration-500 group-hover:translate-x-[-400%]"
-                                    /> */}
+                            <Github id="jiyeonyun" name="본캐" />
+                            <Github id="jiyeonyunjyyun" name="부캐" />
+                            <div className="flex items-center gap-4">
+                                <div className="flex-[7]">
+                                    <AudioPlayer />
                                 </div>
-                                <img src="https://ghchart.rshah.org/jiyeonyun" />
-                            </div>
-                            <div className="flex-col">
-                                <div className="flex justify-between items-center group w-full  ">
-                                    <span className="text-lg font-semibold">부캐</span>
-                                    {/* <img
-                                        src="/yagulion.png"
-                                        alt="본캐"
-                                        className="h-40 w-40 transition-transform duration-500 group-hover:translate-x-[-300%]"
-                                    /> */}
+                                <div className="flex-[3]">
+                                    <FloatingTechGrid />
                                 </div>
-                                <img src="https://ghchart.rshah.org/jiyeonyunjyyun" />
                             </div>
-                            <AudioPlayer />
                         </div>
                     </div>
                 </div>
