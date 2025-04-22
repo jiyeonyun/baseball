@@ -3,12 +3,23 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Container = ({ contents, name, desc }: any) => {
-    const containerStyle = {
-        background: "rgba(211, 211, 211, 0.146)",
-        backdropFilter: "blur(2px)",
-        WebkitBackdropFilter: "blur(2px)",
-        borderRadius: "10px",
-        border: "1px solid rgba(255, 255, 255, 0.18)",
+    const styles = {
+        wrapper: {
+            background: "rgba(211, 211, 211, 0.146)",
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(2px)",
+            borderRadius: "10px",
+            border: "1px solid rgba(255, 255, 255, 0.18)",
+        },
+        name: {
+            boxShadow: "inset 0 -20px 0 #85b8f2",
+        },
+    };
+
+    const classNames = {
+        container: "p-4",
+        nameText: "inline px-2 text-2xl font-bold dark:text-gray",
+        description: "pt-2 text-sm font-semibold dark:text-white",
     };
 
     const textVariants = {
@@ -26,21 +37,18 @@ const Container = ({ contents, name, desc }: any) => {
 
     return (
         <motion.div
-            className="p-4"
-            style={containerStyle}
+            className={classNames.container}
+            style={styles.wrapper}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={textVariants}
         >
             <motion.div variants={textVariants}>
-                <div
-                    className="inline px-2 text-2xl font-bold dark:text-gray"
-                    style={{ boxShadow: "inset 0 -20px 0 #85b8f2" }}
-                >
+                <div className={classNames.nameText} style={styles.name}>
                     {name}
                 </div>
-                <div className="pt-2 text-sm font-semibold dark:text-white">{desc}</div>
+                <div className={classNames.description}>{desc}</div>
                 <br />
                 {contents}
             </motion.div>

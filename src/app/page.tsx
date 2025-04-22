@@ -4,6 +4,9 @@ import Github from "./components/github";
 import FloatingTechGrid from "./components/tech";
 import Container from "./components/container";
 import Intro from "./contents/intro";
+import CareerSection from "./contents/experence";
+import StackCard from "./components/stackCard";
+import Stack from "./contents/stack";
 
 const page = () => {
     return (
@@ -41,24 +44,39 @@ const page = () => {
                         <div className="mb-4">
                             <Container
                                 name={"INTRO"}
-                                desc={"편리함을 추구하는 개발자 윤지연(Handy)입니다"}
+                                desc={"예쁘게 구현된 UI와 직관적인 경험을 추구하는 개발자 윤지연(Jinny)입니다"}
                                 contents={<Intro />}
                             />
                         </div>
                         <div className="mb-4">
-                            <Container name={"EXPERIENCE"} desc={"머라고적지"} contents={<></>} />
+                            <Container
+                                name={"EXPERIENCE"}
+                                desc={"한 회사에서 꾸준히, 다채로운 프로젝트를 깊이있게 경험했습니다."}
+                                contents={<CareerSection />}
+                            />
                         </div>
                         <div className="mb-4">
                             <Container name={"PROJECT"} desc={"머라고적지"} contents={<></>} />
                         </div>
                         <div className="mb-4">
-                            <Container name={"STACK"} desc={"머라고적지"} contents={<></>} />
+                            <Container name={"STACK"} desc={"머라고적지"} contents={<Stack />} />
                         </div>
                         <div className="mb-4">
                             <Container name={"CERTIFICATE"} desc={"머라고적지"} contents={<></>} />
                         </div>
                         <div className="mb-4">
-                            <Container name={"BLOG"} desc={"머라고적지"} contents={<></>} />
+                            <Container
+                                name={"BLOG"}
+                                desc={"머라고적지"}
+                                contents={
+                                    <iframe
+                                        src="https://dkgkrltlfxk.tistory.com/"
+                                        width="100%"
+                                        height="800px"
+                                        style={{ border: "none" }}
+                                    ></iframe>
+                                }
+                            />
                         </div>
                         <div className="mb-4">
                             <Container name={"CONTACT"} desc={"머라고적지"} contents={<></>} />

@@ -39,9 +39,11 @@ export default function AudioPlayer() {
             <div className="flex flex-col justify-between h-full flex-1">
                 {/* 텍스트 */}
                 <div>
-                    <p className="text-m font-semibold dark:text-white">🦦🏝️</p>
+                    <p className="text-m font-semibold dark:text-white">지금은 휴식중 츠츠~ 🦦🏝️</p>
                     <p className="text-xs text-gray-600 dark:text-white leading-tight">프론트엔드 개발자</p>
-                    <p className="text-xs text-gray-600 dark:text-white">뭐라고 적지 후하항</p>
+                    <p className="text-xs text-gray-600 dark:text-white">
+                        정확하게 구현된 UI와 직관적인 경험을 좋아해요
+                    </p>
                 </div>
 
                 {/* 슬라이더 */}
