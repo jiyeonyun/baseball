@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function CompanyModal({ data, onClose }: any) {
+export default function CertificateModal({ onClose }: any) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function CompanyModal({ data, onClose }: any) {
 
     const classNames = {
         overlay: "fixed inset-0 bg-black/50 z-50 flex items-center justify-center",
-        modal: "bg-white p-6 rounded-xl w-[90%] max-w-xl shadow-lg relative",
+        modal: "bg-white p-6 rounded-xl w-[90%] h-[90vh] max-w-xl shadow-lg relative flex flex-col",
         closeBtn: "absolute top-3 right-4 text-gray-500 cursor-pointer",
         title: "text-2xl font-bold mb-4",
         section: "mb-4",
@@ -25,6 +25,8 @@ export default function CompanyModal({ data, onClose }: any) {
         stackLabel: "text-sm font-semibold",
         stackWrap: "flex flex-wrap gap-2 mt-2",
         stackItem: "bg-gray-100 px-2 py-1 rounded text-xs",
+        imageWrap: "flex items-center justify-center",
+        image: "block w-100 h-auto",
     };
 
     return createPortal(
@@ -49,35 +51,9 @@ export default function CompanyModal({ data, onClose }: any) {
                         ✕
                     </button>
 
-                    <h3 className={classNames.title}>회사이름</h3>
-
-                    <div className={classNames.section}>
-                        <h4 className={classNames.sectionTitle}>WHAT I LEARN</h4>
-                        <ul className={classNames.list}>
-                            {data.learn.map((item: any, i: number) => (
-                                <li key={i}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className={classNames.section}>
-                        <h4 className={classNames.sectionTitle}>WHAT I EXPECT</h4>
-                        <ul className={classNames.list}>
-                            {data.expect.map((item: any, i: number) => (
-                                <li key={i}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p className={classNames.stackLabel}># What I used</p>
-                        <div className={classNames.stackWrap}>
-                            {data.stacks.map((tech: any, i: number) => (
-                                <span key={i} className={classNames.stackItem}>
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
+                    <h3 className={classNames.title}>정보처리기사</h3>
+                    <div className={classNames.imageWrap}>
+                        <img className={classNames.image} src="/certiciate.jpg" alt="" />
                     </div>
                 </motion.div>
             </motion.div>

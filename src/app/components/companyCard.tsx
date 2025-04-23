@@ -15,10 +15,16 @@ export default function CompanyCard({ data }: any) {
         tasks: "mt-2 list-disc ml-5 text-sm",
         detailBtn: "text-blue-600 cursor-pointer hover:transition duration-300",
     };
-
+    const containerStyle = {
+        background: "rgba(211, 211, 211, 0.146)",
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+    };
     return (
         <>
-            <div className={classNames.wrapper}>
+            <div className={classNames.wrapper} style={containerStyle}>
                 <div className={classNames.header}>
                     <div>
                         <h2 className="text-xl font-bold">{data.name}</h2>

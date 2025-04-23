@@ -5,8 +5,9 @@ import FloatingTechGrid from "./components/tech";
 import Container from "./components/container";
 import Intro from "./contents/intro";
 import CareerSection from "./contents/experence";
-import StackCard from "./components/stackCard";
 import Stack from "./contents/stack";
+import CertificateTable from "./components/certificateTable";
+import Contact from "./contents/contact";
 
 const page = () => {
     return (
@@ -16,6 +17,9 @@ const page = () => {
                 <div className="flex flex-col items-center justify-center flex-1 gap-4 min-w-[20rem]">
                     <div>이미지</div>
                     <div>
+                        {/* <a href="https://github.com/jiyeonyun">
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jiyeonyun&layout=compact&theme=nord&hide_border=true" />
+                        </a> */}
                         <h3>머시기 개발자</h3>
                         <p>블라블라블라</p>
                     </div>
@@ -62,7 +66,7 @@ const page = () => {
                             <Container name={"STACK"} desc={"머라고적지"} contents={<Stack />} />
                         </div>
                         <div className="mb-4">
-                            <Container name={"CERTIFICATE"} desc={"머라고적지"} contents={<></>} />
+                            <Container name={"CERTIFICATE"} desc={"머라고적지"} contents={<CertificateTable />} />
                         </div>
                         <div className="mb-4">
                             <Container
@@ -79,7 +83,7 @@ const page = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <Container name={"CONTACT"} desc={"머라고적지"} contents={<></>} />
+                            <Container name={"CONTACT"} desc={"머라고적지"} contents={<Contact />} />
                         </div>
                     </div>
                 </div>

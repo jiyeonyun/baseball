@@ -16,9 +16,15 @@ type StackCardProps = {
 export default function StackCard({ icons, years, description }: StackCardProps) {
     const [open, setOpen] = useState(false);
     const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-
+    const containerStyle = {
+        background: "rgba(211, 211, 211, 0.146)",
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+    };
     return (
-        <div className="bg-white rounded-2xl shadow p-4 mb-4 relative">
+        <div style={containerStyle} className="rounded-2xl shadow p-4 mb-4 relative">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setOpen(!open)}>
                 <div className="flex items-center gap-2">
                     {icons.map((icon, idx) => (
@@ -52,7 +58,7 @@ export default function StackCard({ icons, years, description }: StackCardProps)
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="overflow-hidden mt-3"
                     >
-                        <div className="text-gray-700 text-sm whitespace-pre-wrap">{description}</div>
+                        <div className="dark:text-white text-sm whitespace-pre-wrap ">{description}</div>
                     </motion.div>
                 )}
             </AnimatePresence>
