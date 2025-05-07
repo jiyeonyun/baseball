@@ -8,6 +8,8 @@ import CareerSection from "./contents/experence";
 import Stack from "./contents/stack";
 import CertificateTable from "./components/certificateTable";
 import Contact from "./contents/contact";
+import Project from "./contents/project";
+import InteractiveProfile from "./components/interactiveProfile";
 
 const page = () => {
     return (
@@ -15,14 +17,7 @@ const page = () => {
             {/**메인 섹션 */}
             <div className={`flex flex-wrap w-full min-h-[40rem]`}>
                 <div className="flex flex-col items-center justify-center flex-1 gap-4 min-w-[20rem]">
-                    <div>이미지</div>
-                    <div>
-                        {/* <a href="https://github.com/jiyeonyun">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jiyeonyun&layout=compact&theme=nord&hide_border=true" />
-                        </a> */}
-                        <h3>머시기 개발자</h3>
-                        <p>블라블라블라</p>
-                    </div>
+                    <InteractiveProfile />
                 </div>
                 <div className="flex flex-1">
                     <div className="flex flex-wrap items-center justify-center w-full h-full gap-4 gap-y-4">
@@ -60,7 +55,11 @@ const page = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <Container name={"PROJECT"} desc={"머라고적지"} contents={<></>} />
+                            <Container
+                                name={"PROJECT"}
+                                desc={"다양한 프로젝트 경험을 통해 웹과 모바일 개발 역량을 갖추었습니다."}
+                                contents={<Project />}
+                            />
                         </div>
                         <div className="mb-4">
                             <Container name={"STACK"} desc={"머라고적지"} contents={<Stack />} />
