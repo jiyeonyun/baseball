@@ -62,15 +62,21 @@ const page = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <Container name={"STACK"} desc={"머라고적지"} contents={<Stack />} />
+                            <Container
+                                name={"STACK"}
+                                desc={
+                                    "익숙한 기술에는 안정성을, 익숙하지 않은 기술에는 빠른 습득력으로 대응하고 있습니다."
+                                }
+                                contents={<Stack />}
+                            />
                         </div>
                         <div className="mb-4">
-                            <Container name={"CERTIFICATE"} desc={"머라고적지"} contents={<CertificateTable />} />
+                            <Container name={"CERTIFICATE"} desc={""} contents={<CertificateTable />} />
                         </div>
                         <div className="mb-4">
                             <Container
                                 name={"BLOG"}
-                                desc={"머라고적지"}
+                                desc={""}
                                 contents={
                                     <iframe
                                         src="https://dkgkrltlfxk.tistory.com/"
@@ -82,7 +88,7 @@ const page = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <Container name={"CONTACT"} desc={"머라고적지"} contents={<Contact />} />
+                            <Container name={"CONTACT"} desc={""} contents={<Contact />} />
                         </div>
                     </div>
                 </div>

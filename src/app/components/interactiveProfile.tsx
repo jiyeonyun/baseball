@@ -74,9 +74,9 @@ const InteractiveProfile = () => {
                                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white"
                             }`}
                             style={{
-                                left: `calc(45% + ${x}px)`,
+                                left: `calc(40% + ${x}px)`,
                                 top: `calc(45% + ${y}px)`,
-                                transform: "translate(-45%, -45%)",
+                                transform: "translate(-40%, -45%)",
                             }}
                             animate={{
                                 y: [0, -10, 0],
