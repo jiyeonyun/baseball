@@ -109,7 +109,7 @@ const InteractiveProfile = () => {
                             exit={{ opacity: 0 }}
                             className="w-full h-full"
                         >
-                            <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+                            <img src="/img.png" alt="Profile" className="w-full h-full object-contain rounded-full" />
                         </motion.div>
                     ) : (
                         <div className="text-center p-4">
