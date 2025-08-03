@@ -3,6 +3,7 @@
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { getImagePath } from "../utils/imagePath";
 
 export default function CertificateModal({ onClose }: any) {
     const [mounted, setMounted] = useState(false);
@@ -53,8 +54,9 @@ export default function CertificateModal({ onClose }: any) {
                         ✕
                     </button>
 
+                    <h3 className={classNames.title}>정보처리기사</h3>
                     <div className={classNames.imageWrap}>
-                        <img className={classNames.image} src="/certiciate.jpg" alt="" />
+                        <img className={classNames.image} src={getImagePath("/certiciate.jpg")} alt="" />
                     </div>
                 </motion.div>
             </motion.div>

@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { getImagePath } from "../utils/imagePath";
+
 const styles = {
     intro: {
         position: "fixed" as const,
@@ -69,10 +71,16 @@ const MainIntro = () => {
 
             <div style={{ ...styles.intro, ...(!showIntro ? {} : {}) }}>
                 <div style={styles.introBg}>
-                    <Image src="/introBg.jpg" alt="Intro Background" fill style={{ objectFit: "cover" }} priority />
+                    <Image
+                        src={getImagePath("/introBg.jpg")}
+                        alt="Intro Background"
+                        fill
+                        style={{ objectFit: "cover" }}
+                        priority
+                    />
                 </div>
                 <div style={styles.introLogo}>
-                    <Image src="/introLogo.png" alt="Intro Logo" width={400} height={400} priority />
+                    <Image src={getImagePath("/introLogo.png")} alt="Intro Logo" width={400} height={400} priority />
                 </div>
             </div>
         </>

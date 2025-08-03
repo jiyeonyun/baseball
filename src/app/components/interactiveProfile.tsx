@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaBaseballBall } from "react-icons/fa";
 import { SiReact, SiTypescript, SiJavascript, SiNextdotjs } from "react-icons/si";
+import { getImagePath } from "../utils/imagePath";
 
 interface Icon {
     id: string;
@@ -109,7 +110,11 @@ const InteractiveProfile = () => {
                             exit={{ opacity: 0 }}
                             className="w-full h-full"
                         >
-                            <img src="/img.png" alt="Profile" className="w-full h-full object-contain rounded-full" />
+                            <img
+                                src={getImagePath("/img.png")}
+                                alt="Profile"
+                                className="w-full h-full object-contain rounded-full"
+                            />
                         </motion.div>
                     ) : (
                         <div className="text-center p-4">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaPlay, FaPause, FaForward, FaBackward, FaRandom, FaRedo } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { getImagePath } from "../utils/imagePath";
 
 export default function AudioPlayer() {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -28,7 +29,7 @@ export default function AudioPlayer() {
             {/* 앨범 이미지 */}
             <motion.img
                 key={isPlaying ? "playing" : "paused"}
-                src="/baseball.png"
+                src={getImagePath("/baseball.png")}
                 alt="album"
                 className="w-24 h-24 object-cover rounded-xl"
                 animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
