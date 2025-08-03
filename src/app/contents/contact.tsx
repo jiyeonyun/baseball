@@ -26,7 +26,7 @@ const Contact = () => {
         },
         {
             icon: <FaLinkedin className="w-6 h-6" />,
-            href: "https://www.linkedin.com/in/jiyeonyun",
+            href: "",
             label: "LinkedIn",
         },
     ];
@@ -40,12 +40,12 @@ const Contact = () => {
                 className="flex flex-col items-center gap-6"
             >
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                    <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent">
                         YUN JI YEON
                     </h2>
-                    <p className="text-xl text-gray-700 dark:text-white mb-4">FRONTEND DEVELOPER</p>
-                    <p className="text-lg text-gray-600 dark:text-white mb-2">Position | Developer, Researcher</p>
-                    <p className="text-base text-gray-700 dark:text-white italic">
+                    <p className="text-xl text-gray-700 dark:text-gray-200 mb-4">FRONTEND DEVELOPER</p>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">Position | Developer, Researcher</p>
+                    <p className="text-base text-gray-700 dark:text-gray-300 italic">
                         유저에게 편리함을 주는 서비스를 만드는 개발자
                     </p>
                 </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-white"
+                            className="p-3 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors text-gray-700 dark:text-gray-200"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                             aria-label={link.label}
@@ -68,7 +68,7 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-6 text-center">
-                    <p className="text-sm text-gray-600 dark:text-white">© 2024 YUN JI YEON. All rights reserved.</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">© 2024 YUN JI YEON. All rights reserved.</p>
                 </div>
             </motion.div>
         </div>

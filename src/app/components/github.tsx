@@ -4,7 +4,7 @@ const Github = ({ name, id }: { name: string; id: string }) => {
     const classNames = {
         container: "flex-col",
         header: "flex justify-between items-center group w-full",
-        name: "text-lg font-semibold",
+        name: "text-lg font-semibold text-gray-900 dark:text-white",
     };
 
     return (

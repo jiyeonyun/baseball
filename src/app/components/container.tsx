@@ -18,8 +18,8 @@ const Container = ({ contents, name, desc }: any) => {
 
     const classNames = {
         container: "p-4",
-        nameText: "inline px-2 text-2xl font-bold dark:text-gray",
-        description: "pt-2 text-sm font-semibold dark:text-white",
+        nameText: "inline px-2 text-2xl font-bold text-gray-900 dark:text-white",
+        description: "pt-2 text-sm font-semibold text-gray-700 dark:text-gray-200",
     };
 
     const textVariants = {

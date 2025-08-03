@@ -35,16 +35,22 @@ export default function StackCard({ icons, years, description }: StackCardProps)
                             onMouseLeave={() => setHoverIdx(null)}
                         >
                             {hoverIdx === idx && (
-                                <div className="absolute bottom-full mb-1 bg-gray-800 text-white text-xs rounded px-2 py-1 z-10 whitespace-nowrap">
+                                <div className="absolute bottom-full mb-1 bg-gray-800 dark:bg-slate-700 text-white text-xs rounded px-2 py-1 z-10 whitespace-nowrap">
                                     {icon.alt}
                                 </div>
                             )}
                             <img src={icon.src} alt={icon.alt} className="w-10 h-10" />
                         </div>
                     ))}
-                    <span className="text-sm text-gray font-normal">{years} Experienced years</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-300 font-normal">
+                        {years} Experienced years
+                    </span>
                 </div>
-                {description && (open ? <CgChevronDown className="w-5 h-5" /> : <CgChevronLeft className="w-5 h-5" />)}
+                {description && (
+                    <div className="text-gray-600 dark:text-gray-300">
+                        {open ? <CgChevronDown className="w-5 h-5" /> : <CgChevronLeft className="w-5 h-5" />}
+                    </div>
+                )}
             </div>
 
             {/* motion 등장 */}
@@ -58,7 +64,9 @@ export default function StackCard({ icons, years, description }: StackCardProps)
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="overflow-hidden mt-3"
                     >
-                        <div className="dark:text-white text-sm whitespace-pre-wrap ">{description}</div>
+                        <div className="text-gray-700 dark:text-gray-200 text-sm whitespace-pre-wrap">
+                            {description}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -16,15 +16,17 @@ export default function CertificateModal({ onClose }: any) {
 
     const classNames = {
         overlay: "fixed inset-0 bg-black/50 z-50 flex items-center justify-center",
-        modal: "bg-white p-6 rounded-xl w-[90%] h-[90vh] max-w-xl shadow-lg relative flex flex-col",
-        closeBtn: "absolute top-3 right-4 text-gray-500 cursor-pointer",
-        title: "text-2xl font-bold mb-4",
+        modal: "bg-white dark:bg-slate-800 p-6 rounded-xl w-[90%] h-[90vh] max-w-xl shadow-lg relative flex flex-col",
+        closeBtn:
+            "absolute top-3 right-4 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-gray-700 dark:hover:text-gray-200",
+        title: "text-2xl font-bold mb-4 text-gray-900 dark:text-white",
         section: "mb-4",
-        sectionTitle: "font-semibold text-blue-600 border-b border-blue-600 mb-1",
-        list: "list-disc ml-5",
-        stackLabel: "text-sm font-semibold",
+        sectionTitle:
+            "font-semibold text-blue-600 dark:text-blue-400 border-b border-blue-600 dark:border-blue-400 mb-1",
+        list: "list-disc ml-5 text-gray-700 dark:text-gray-300",
+        stackLabel: "text-sm font-semibold text-gray-700 dark:text-gray-300",
         stackWrap: "flex flex-wrap gap-2 mt-2",
-        stackItem: "bg-gray-100 px-2 py-1 rounded text-xs",
+        stackItem: "bg-gray-100 dark:bg-slate-600 px-2 py-1 rounded text-xs text-gray-700 dark:text-gray-200",
         imageWrap: "flex items-center justify-center",
         image: "block w-100 h-auto",
     };
@@ -51,7 +53,6 @@ export default function CertificateModal({ onClose }: any) {
                         ✕
                     </button>
 
-                    <h3 className={classNames.title}>정보처리기사</h3>
                     <div className={classNames.imageWrap}>
                         <img className={classNames.image} src="/certiciate.jpg" alt="" />
                     </div>

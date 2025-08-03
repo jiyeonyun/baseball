@@ -36,10 +36,10 @@ const MainIntro = () => {
     useEffect(() => {
         setTimeout(() => {
             setShowIntro(false);
-        }, 2000);
+        }, 1000);
         setTimeout(() => {
             router.push("/main");
-        }, 3000);
+        }, 2000);
     }, []);
     return (
         <>

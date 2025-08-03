@@ -3,7 +3,7 @@ import React from "react";
 const Intro = () => {
     return (
         <>
-            <div className="text-sm font-normal w-full flex flex-col gap-6">
+            <div className="text-sm font-normal w-full flex flex-col gap-6 text-gray-700 dark:text-gray-200">
                 안녕하세요.
                 <br />
                 프론트엔드 개발자로 3년째, 웹과 앱을 넘나드는 프론트엔드 개발자입니다.

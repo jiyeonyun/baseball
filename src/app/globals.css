@@ -31,3 +31,61 @@ body {
 .dark body {
   @apply bg-slate-950 text-white;
 }
+
+/* 다크모드에서 텍스트 색상 개선 */
+.dark {
+  color: #f8fafc;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+}
+
+.dark p, .dark span, .dark div {
+  color: #e2e8f0;
+}
+
+.dark a {
+  color: #60a5fa;
+}
+
+.dark a:hover {
+  color: #93c5fd;
+}
+
+/* 다크모드에서 배경 투명도 개선 */
+.dark .bg-white\/50 {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+.dark .bg-gray-200 {
+  background-color: #475569;
+  color: #f1f5f9;
+}
+
+.dark .text-gray-500 {
+  color: #94a3b8;
+}
+
+.dark .text-blue-500 {
+  color: #60a5fa;
+}
+
+.dark .text-blue-600 {
+  color: #3b82f6;
+}
+
+/* CompanyCard의 li 태그에 대한 강력한 다크모드 스타일 */
+.dark ul li.text-gray-700 {
+  color: #ffffff !important;
+}
+
+/* CertificateTable의 td 태그에 대한 강력한 다크모드 스타일 */
+.dark table td.text-gray-700 {
+  color: #ffffff !important;
+}
+
+/* CompanyModal의 제목은 기존 색상 유지 */
+.dark h3.text-gray-900 {
+  color: #111827 !important;
+}

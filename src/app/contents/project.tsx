@@ -107,17 +107,21 @@ const Project = () => {
                         onClick={() => toggleProject(index)}
                     >
                         <div>
-                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                            <p className="text-sm text-default-500 mb-2">{project.period}</p>
-                            <p className="font-semibold mb-2">{project.role}</p>
-                            <p className="text-sm text-default-500 mb-2">기술 스택: {project.tech}</p>
-                            {project.team && <p className="text-sm text-default-500 mb-2">{project.team}</p>}
+                            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{project.period}</p>
+                            <p className="font-semibold mb-2 text-gray-800 dark:text-gray-200">{project.role}</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">기술 스택: {project.tech}</p>
+                            {project.team && (
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{project.team}</p>
+                            )}
                         </div>
-                        {openProjects.includes(index) ? (
-                            <CgChevronDown className="w-5 h-5" />
-                        ) : (
-                            <CgChevronLeft className="w-5 h-5" />
-                        )}
+                        <div className="text-gray-600 dark:text-gray-400">
+                            {openProjects.includes(index) ? (
+                                <CgChevronDown className="w-5 h-5" />
+                            ) : (
+                                <CgChevronLeft className="w-5 h-5" />
+                            )}
+                        </div>
                     </div>
 
                     <AnimatePresence>
@@ -132,7 +136,7 @@ const Project = () => {
                             >
                                 <ul className="list-disc list-inside space-y-1">
                                     {project.details.map((detail, idx) => (
-                                        <li key={idx} className="text-sm">
+                                        <li key={idx} className="text-sm text-gray-700 dark:text-gray-300">
                                             {detail}
                                         </li>
                                     ))}

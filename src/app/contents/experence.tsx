@@ -2,7 +2,7 @@ import CompanyCard from "../components/companyCard";
 
 const companies = [
     {
-        name: "회사이름",
+        name: "젠트로피",
         url: "https://www.zentropy.co.kr/",
         tags: ["프론트엔드 개발자"],
         period: "2022/05 ~ 2025/04",
@@ -15,17 +15,16 @@ const companies = [
         ],
         modal: {
             learn: [
-                "React, Next, Typescript 기반의 깔끔한 웹 앱",
-                "MSA 아키텍처와의 원활한 JSON 상호작용",
-                "지속 가능한 소프트웨어 개발",
-                "오디오를 사용하는 모던 웹사이트 개발 경험",
+                "React, Next.js, TypeScript 기반의 모던하고 유지보수 용이한 웹 앱 개발",
+                "React Native를 활용한 크로스플랫폼 모바일 앱 개발 경험",
+                "지속 가능하고 확장 가능한 소프트웨어 설계 및 개발 역량 강화",
             ],
             expect: [
-                "백오피스 UI 라이브러리 개발",
-                "직관적인 UI와 UX 제공",
-                "유저 데이터를 기반으로 한 의사 결정 고도화",
+                "효율적인 백오피스 UI 라이브러리 설계 및 개발",
+                "사용자 친화적이고 직관적인 UI/UX 제공",
+                "유저 데이터 분석을 통한 전략적 의사결정 지원",
             ],
-            stacks: ["TypeScript", "Next.js", "MUI", "AWS"],
+            stacks: ["TypeScript", "Next.js", "React", "React Native"],
         },
     },
 ];

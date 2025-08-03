@@ -39,9 +39,9 @@ export default function AudioPlayer() {
             <div className="flex flex-col justify-between h-full flex-1">
                 {/* 텍스트 */}
                 <div>
-                    <p className="text-m font-semibold dark:text-white">지금은 휴식중 츠츠~ 🦦🏝️</p>
-                    <p className="text-xs text-gray-600 dark:text-white leading-tight">프론트엔드 개발자</p>
-                    <p className="text-xs text-gray-600 dark:text-white">
+                    <p className="text-m font-semibold text-gray-900 dark:text-white">지금은 휴식중 츠츠~ 🦦🏝️</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-tight">프론트엔드 개발자</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300">
                         정확하게 구현된 UI와 직관적인 경험을 좋아해요
                     </p>
                 </div>
@@ -63,17 +63,17 @@ export default function AudioPlayer() {
                 </div>
 
                 {/* 아이콘들 */}
-                <div className="mt-3 flex items-center justify-between text-xl">
-                    <FaRedo className="cursor-pointer" />
-                    <FaBackward className="cursor-pointer" />
+                <div className="mt-3 flex items-center justify-between text-xl text-gray-700 dark:text-gray-300">
+                    <FaRedo className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors" />
+                    <FaBackward className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors" />
                     <button
                         onClick={togglePlay}
-                        className="bg-white text-black dark:bg-white dark:text-black p-2 rounded-full"
+                        className="bg-white dark:bg-slate-700 text-black dark:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
                     >
                         {isPlaying ? <FaPause /> : <FaPlay />}
                     </button>
-                    <FaForward className="cursor-pointer" />
-                    <FaRandom className="cursor-pointer" />
+                    <FaForward className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors" />
+                    <FaRandom className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors" />
                 </div>
 
                 {/* 음파 애니메이션 */}

@@ -71,7 +71,7 @@ const InteractiveProfile = () => {
                             className={`absolute p-2 rounded-lg cursor-move ${
                                 droppedIcons.includes(icon.id)
                                     ? "bg-green-500 text-white"
-                                    : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white"
+                                    : "bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-200"
                             }`}
                             style={{
                                 left: `calc(40% + ${x}px)`,
@@ -138,7 +138,7 @@ const InteractiveProfile = () => {
                         exit={{ opacity: 0, y: 20 }}
                         className="absolute bottom-0 left-0 right-0 text-center"
                     >
-                        <h3 className="text-xl font-bold mb-2">프론트엔드 개발자</h3>
+                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">프론트엔드 개발자</h3>
                         <p className="text-gray-600 dark:text-gray-300">
                             React와 React Native를 주로 다루는 개발자입니다.
                         </p>
