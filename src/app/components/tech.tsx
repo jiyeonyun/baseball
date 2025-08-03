@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { getImagePath } from "../utils/imagePath";
 
 const techs = [
     { label: "TypeScript", tooltip: "and.. JavaScript" },
@@ -31,7 +32,7 @@ export default function FloatingTechGrid() {
                         variants={floatingY(index * 0.3)}
                         animate="animate"
                         style={{
-                            backgroundImage: "url('/cloud.png')",
+                            backgroundImage: `url('${getImagePath("/cloud.png")}')`,
                         }}
                     >
                         {tech.label}
