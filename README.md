@@ -35,7 +35,6 @@ npm run dev
 이 프로젝트는 GitHub Pages에 자동으로 배포됩니다.
 
 -   `main` 브랜치에 푸시하면 자동으로 배포됩니다
--   배포된 사이트: https://[your-username].github.io/my-app
 
 ## 라이센스
 
