@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getImagePath } from "../utils/imagePath";
 
-export default function CertificateModal({ onClose }: any) {
+export default function CertificateModal({ onClose, certificate }: any) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -54,9 +54,13 @@ export default function CertificateModal({ onClose }: any) {
                         ✕
                     </button>
 
-                    <h3 className={classNames.title}>정보처리기사</h3>
+                    <h3 className={classNames.title}>{certificate?.name || "자격증"}</h3>
                     <div className={classNames.imageWrap}>
-                        <img className={classNames.image} src={getImagePath("/certiciate.jpg")} alt="" />
+                        <img
+                            className={classNames.image}
+                            src={getImagePath(certificate?.image || "/certiciate.jpg")}
+                            alt={certificate?.name || "자격증"}
+                        />
                     </div>
                 </motion.div>
             </motion.div>

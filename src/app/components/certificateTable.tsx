@@ -6,17 +6,20 @@ import CertificateModal from "./certificateModal";
 
 const certifications = [
     {
-        name: "정보처리기사 ",
+        name: "정보처리기사",
         reason: "대학생활의 마무리를 위해 취득하였습니다.",
+        image: "/certiciate.jpg",
     },
     {
         name: "ADSP 데이터 분석 준전문가",
         reason: "데이터 분석 기술 활용 능력 인증",
+        image: "/adsp.png",
     },
 ];
 
 export default function CertificateTable() {
     const [open, setOpen] = useState(false);
+    const [selectedCert, setSelectedCert] = useState<any>(null);
     const containerStyle = {
         background: "rgba(211, 211, 211, 0.146)",
         backdropFilter: "blur(2px)",
@@ -45,7 +48,10 @@ export default function CertificateTable() {
                                 <td className="p-3 text-gray-700 dark:text-white">{cert.reason}</td>
                                 <td className="p-3 text-center">
                                     <FaFile
-                                        onClick={() => setOpen(true)}
+                                        onClick={() => {
+                                            setSelectedCert(cert);
+                                            setOpen(true);
+                                        }}
                                         className="mx-auto text-blue-500 dark:text-blue-400 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                                     />
                                 </td>
@@ -54,7 +60,7 @@ export default function CertificateTable() {
                     </tbody>
                 </table>
             </div>
-            {open && <CertificateModal onClose={() => setOpen(false)} />}
+            {open && selectedCert && <CertificateModal onClose={() => setOpen(false)} certificate={selectedCert} />}
         </>
     );
 }
