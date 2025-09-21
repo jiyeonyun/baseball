@@ -1,11 +1,7 @@
-import MainIntro from "./components/mainIntro";
+import { redirect } from "next/navigation";
 
 const page = () => {
-    return (
-        <div>
-            <MainIntro />
-        </div>
-    );
+    redirect("/main");
 };
 
 export default page;

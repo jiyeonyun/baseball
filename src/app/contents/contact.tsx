@@ -66,7 +66,6 @@ const Contact = () => {
                         </motion.a>
                     ))}
                 </div>
-
                 <div className="mt-6 text-center">
                     <p className="text-sm text-gray-600 dark:text-gray-400">© 2024 YUN JI YEON. All rights reserved.</p>
                 </div>

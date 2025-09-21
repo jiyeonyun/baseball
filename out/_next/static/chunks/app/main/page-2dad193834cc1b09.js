@@ -442,6 +442,7 @@
             let o = [
                 { name: "정보처리기사 ", reason: "대학생활의 마무리를 위해 취득하였습니다." },
                 { name: "ADSP 데이터 분석 준전문가", reason: "데이터 분석 기술 활용 능력 인증" },
+                { name: "SQLD", reason: "데이터베이스 설계 및 운영 능력 인증" },
             ];
             function x() {
                 let [e, t] = (0, s.useState)(!1);

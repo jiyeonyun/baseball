@@ -5,7 +5,7 @@ import { getImagePath } from "../utils/imagePath";
 const techs = [
     { label: "TypeScript", tooltip: "and.. JavaScript" },
     { label: "ReactNative", tooltip: "and.. Expo" },
-    { label: "Next.js", tooltip: "and..React" },
+    { label: "React", tooltip: "and..Next.js" },
     { label: "Tailwind.css", tooltip: "and ..SCSS / Styled Components" },
 ];
 

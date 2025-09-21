@@ -15,6 +15,11 @@ const certifications = [
         reason: "데이터 분석 기술 활용 능력 인증",
         image: "/adsp.png",
     },
+    {
+        name: "SQL 개발자(SQLD)",
+        reason: "데이터베이스 설계 및 운영 능력 인증",
+        image: "/sqld.jpg",
+    },
 ];
 
 export default function CertificateTable() {

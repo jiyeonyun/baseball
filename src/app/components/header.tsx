@@ -18,7 +18,7 @@ const navItemsClass = `
 const Header = () => {
     return (
         <div className={headerWrapperClass}>
-            <span>YUN JI YEON</span>
+            <span className="font-bold">YUN JI YEON</span>
             <div className={navItemsClass}>
                 <a href="https://github.com/jiyeonyun">GITHUB</a>
                 {/* <a href="https://www.notion.so/Jiyeon-Yun-20aac4c773454df5b42d5d7f37d65627?source=copy_link">NOTION</a> */}
