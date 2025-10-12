@@ -1,47 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #faf6f1;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #faf6f1;
-  }
-}
-
+/* 기본 body 스타일 */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[#faf6f1] transition-colors duration-300;
+  color: #000000;
 }
 
-body {
-  @apply bg-[#faf6f1] text-black;
-}
+/* 다크모드 body 스타일 */
 .dark body {
-  @apply bg-slate-950 text-white;
+  @apply bg-slate-950;
+  color: #ffffff;
 }
 
-/* 다크모드에서 텍스트 색상 개선 */
-.dark {
+/* 다크모드에서 텍스트 색상 개선 - Tailwind 클래스와 충돌하지 않도록 조정 */
+.dark:not([class*="text-"]) {
   color: #f8fafc;
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+.dark h1:not([class*="text-"]), 
+.dark h2:not([class*="text-"]), 
+.dark h3:not([class*="text-"]), 
+.dark h4:not([class*="text-"]), 
+.dark h5:not([class*="text-"]), 
+.dark h6:not([class*="text-"]) {
   color: #f1f5f9;
 }
 
-.dark p, .dark span, .dark div {
+.dark p:not([class*="text-"]), 
+.dark span:not([class*="text-"]) {
   color: #e2e8f0;
 }
 
@@ -63,7 +49,7 @@ body {
   color: #f1f5f9;
 }
 
-.dark .text-gray-500 {
+html.dark .text-gray-500 {
   color: #94a3b8;
 }
 
@@ -75,19 +61,49 @@ body {
   color: #3b82f6;
 }
 
-/* CompanyCard의 li 태그에 대한 강력한 다크모드 스타일 */
-.dark ul li.text-gray-700 {
-  color: #ffffff !important;
+/* 다크모드에서 텍스트 색상 변경 */
+html.dark .text-gray-900 {
+  color: #ffffff;
 }
 
-/* CertificateTable의 td 태그에 대한 강력한 다크모드 스타일 */
-.dark table td.text-gray-700 {
-  color: #ffffff !important;
+html.dark .text-gray-700 {
+  color: #ffffff;
 }
 
-/* CompanyModal의 제목은 기존 색상 유지 */
-.dark h3.text-gray-900 {
-  color: #111827 !important;
+html.dark .text-gray-600 {
+  color: #e1e1e1;
+}
+
+/* 다크모드에서 흰 배경 카드의 텍스트 색상 - Tailwind 클래스와 충돌하지 않도록 조정 */
+.dark .bg-white:not([class*="dark:bg-"]):not([class*="dark:text-"]) {
+  color: #1f2937;
+}
+
+.dark .bg-white:not([class*="dark:bg-"]) h1:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) h2:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) h3:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) h4:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) h5:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) h6:not([class*="dark:text-"]) {
+  color: #111827;
+}
+
+.dark .bg-white:not([class*="dark:bg-"]) p:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) span:not([class*="dark:text-"]),
+.dark .bg-white:not([class*="dark:bg-"]) div:not([class*="dark:text-"]) {
+  color: #374151;
+}
+
+.dark .bg-white:not([class*="dark:bg-"]) .text-gray-600:not([class*="dark:text-"]) {
+  color: #4b5563;
+}
+
+.dark .bg-white:not([class*="dark:bg-"]) .text-gray-800:not([class*="dark:text-"]) {
+  color: #1f2937;
+}
+
+.dark .bg-white:not([class*="dark:bg-"]) .text-gray-700:not([class*="dark:text-"]) {
+  color: #374151;
 }
 
 /* 애니메이션 정의 */
@@ -120,4 +136,56 @@ body {
 .animate-fade-in-up-delay-3 {
   animation: fadeInUp 0.8s ease-out 1.2s forwards;
   opacity: 0;
+}
+
+/* 커스텀 스크롤바 스타일 */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-gray-400 {
+  scrollbar-color: #9ca3af transparent;
+}
+
+.scrollbar-track-gray-200 {
+  scrollbar-color: #9ca3af #e5e7eb;
+}
+
+/* 웹킷 기반 브라우저용 스크롤바 스타일 */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* 스크롤 힌트 애니메이션 */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(-50%, -10px, 0);
+  }
+  70% {
+    transform: translate3d(-50%, -5px, 0);
+  }
+  90% {
+    transform: translate3d(-50%, -2px, 0);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
 }

@@ -18,8 +18,8 @@ const Container = ({ contents, name, desc }: any) => {
 
     const classNames = {
         container: "p-4",
-        nameText: "inline px-2 text-2xl font-bold text-gray-900 dark:text-white",
-        description: "pt-2 text-sm font-semibold text-gray-700 dark:text-gray-200",
+        nameText: "inline px-2 text-2xl font-bold text-gray-900",
+        description: "pt-2 text-sm font-semibold text-gray-700",
     };
 
     const textVariants = {
@@ -45,9 +45,9 @@ const Container = ({ contents, name, desc }: any) => {
             variants={textVariants}
         >
             <motion.div variants={textVariants}>
-                <div className={classNames.nameText} style={styles.name}>
+                <h2 className={classNames.nameText} style={styles.name}>
                     {name}
-                </div>
+                </h2>
                 <div className={classNames.description}>{desc}</div>
                 <br />
                 {contents}

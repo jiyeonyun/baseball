@@ -6,7 +6,6 @@ import Stack from "../contents/stack";
 import CertificateTable from "../components/certificateTable";
 import Contact from "../contents/contact";
 import Project from "../contents/project";
-import { getImagePath } from "../utils/imagePath";
 import AudioPlayer from "../components/player";
 import FloatingTechGrid from "../components/tech";
 import Core from "../contents/core";

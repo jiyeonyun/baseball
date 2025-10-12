@@ -51,7 +51,7 @@ const Project = () => {
             role: "주요 업무: 홈페이지 개편 및 구매 기능 도입",
             tech: "Next.js, TypeScript, Zustand, styled-components",
             team: "개발 인원: 프론트엔드 2명 / 백엔드 3명",
-            screenshot: "/homepage-screenshot.png",
+            screenshot: "/homepage.webp",
             deviceType: "desktop",
             details: [
                 "jQuery 기반 홈페이지를 Next.js SPA 구조로 전환하여 속도 및 유지보수 개선",
@@ -66,7 +66,7 @@ const Project = () => {
             role: "주요 업무: 내부 웹 페이지 단독 개발",
             tech: "Next.js, TypeScript",
             team: "개발 인원: 프론트엔드 1명",
-            screenshot: "/zental-screenshot.png",
+            screenshot: "/zental.webp",
             deviceType: "desktop",
             details: ["기존 시스템에 비해 가벼운 구조의 단일 페이지 개발", "API 연동부터 UI 구성까지 단독 수행"],
         },
@@ -76,7 +76,7 @@ const Project = () => {
             role: "주요 업무: 사내 UI 프레임워크 개발",
             tech: "React.js, HTML5, CSS3, JavaScript, styled-components",
             team: "개발 인원: 3명",
-            screenshot: "/ui-framework-screenshot.png",
+            screenshot: "/pui.webp",
             deviceType: "desktop",
             details: [
                 "기존에 분산된 UI 요소를 통합하여 일관된 UI/UX 제공",
@@ -105,7 +105,7 @@ const Project = () => {
             role: "프론트엔드 개발, 기획",
             tech: "ReactNative,Expo, TypeScript",
             team: "개발 인원: 프론트엔드 1명",
-            screenshot: "/order-system-screenshot.png",
+            screenshot: "/yagu.png",
             deviceType: "mobile",
             details: [
                 "직관간 날의 점수와 기분 사진등을 기록할수있는 어플",
@@ -128,6 +128,50 @@ const Project = () => {
                             src={getImagePath(screenshot)}
                             alt="프로젝트 스크린샷"
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = "none";
+                                const placeholder = target.nextElementSibling as HTMLElement;
+                                if (placeholder) placeholder.style.display = "flex";
+                            }}
+                        />
+                        <div
+                            className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-500 text-sm"
+                            style={{ display: "none" }}
+                        >
+                            스크린샷 준비 중
+                        </div>
+                    </div>
+                </div>
+                {/* 모니터 스탠드 */}
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-gray-700 rounded-full"></div>
+            </div>
+        </div>
+    );
+
+    // 긴 이미지를 위한 스크롤 가능한 모니터 목업 컴포넌트 (zental 전용)
+    const ScrollableMonitorMockup = ({ screenshot }: { screenshot: string }) => (
+        <div className="relative w-full max-w-sm">
+            {/* 스크롤 힌트 */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full z-10 animate-bounce">
+                📜 스크롤해보세요
+            </div>
+
+            {/* 모니터 베이스 */}
+            <div className="relative bg-gray-800 rounded-lg p-3 shadow-2xl">
+                {/* 모니터 스크린 */}
+                <div className="relative bg-black rounded-lg overflow-hidden">
+                    {/* 스크린 내부 - 스크롤 가능 */}
+                    <div className="relative aspect-video bg-gray-100 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 group">
+                        {/* 스크롤 인디케이터 */}
+                        <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full opacity-100 group-hover:opacity-0 transition-opacity duration-300 z-10">
+                            ↓ 스크롤
+                        </div>
+
+                        <img
+                            src={getImagePath(screenshot)}
+                            alt="프로젝트 스크린샷"
+                            className="w-full h-auto min-h-full object-cover"
                             onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.style.display = "none";
@@ -255,6 +299,8 @@ const Project = () => {
                                         <div className="flex justify-center">
                                             {project.deviceType === "mobile"
                                                 ? iPhoneMockup({ screenshot: project.screenshot })
+                                                : project.screenshot === "/zental.webp"
+                                                ? ScrollableMonitorMockup({ screenshot: project.screenshot })
                                                 : MonitorMockup({ screenshot: project.screenshot })}
                                         </div>
                                     )}
