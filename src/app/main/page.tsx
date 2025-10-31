@@ -26,12 +26,13 @@ const page = () => {
                                 성장하는 개발자가 되기 위해 항상 고민하고 실천합니다.
                             </p>
                             <div className="flex gap-4 items-center justify-center w-full">
-                                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 animate-fade-in-up-delay-3">
+                                <a
+                                    href="/resume.pdf"
+                                    download
+                                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 animate-fade-in-up-delay-3"
+                                >
                                     이력서 다운로드
-                                </button>
-                                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 animate-fade-in-up-delay-3">
-                                    포트폴리오 다운로드
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +48,7 @@ const page = () => {
                         <div className="mb-4">
                             <Container
                                 name={"INTRO"}
-                                desc={"예쁘게 구현된 UI와 직관적인 경험을 추구하는 개발자 윤지연(Jinny)입니다"}
+                                desc={"문제의 본질을 파악하고, 직관적인 경험을 추구하는 개발자 윤지연입니다"}
                                 contents={<Intro />}
                             />
                         </div>
